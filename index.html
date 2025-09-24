@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana do Produtor Rural - Faculdade do Futuro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #1b5e20;
+            --secondary: #ff9800;
+            --secondary-light: #ffb74d;
+            --light: #f1f8e9;
+            --dark: #1b5e20;
+            --accent: #8bc34a;
+            --gray: #757575;
+            --white: #ffffff;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header fino */
+        .thin-header {
+            background-color: #023106;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+         .logo-image {
+            height: 50px;
+             width: auto;
+     
+         }        
+        /* Capa com imagem */
+        .cover {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .cover h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .cover .subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .date-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Seção de introdução */
+        .intro {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: var(--white);
+        }
+        
+        .intro h2 {
+            color: var(--primary-dark);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .intro h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .intro p {
+            max-width: 900px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+        
+        .highlight {
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* Grid de eventos */
+        .events {
+            padding: 60px 20px;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            color: var(--primary-dark);
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .event-header {
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .event-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .event-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .event-date {
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .event-date i {
+            margin-right: 8px;
+        }
+        
+        .event-description {
+            margin-bottom: 20px;
+            color: var(--gray);
+            flex-grow: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            text-align: center;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: #e68900;
+        }
+        
+        /* Seção de inscrição geral */
+        .general-registration {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .general-registration h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .general-registration p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .cover h1 {
+                font-size: 2.2rem;
+            }
+            
+            .cover .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header fino -->
+<!-- Header fino -->
+<div class="thin-header">
+    <div class="container header-content">
+        <div class="logo">
+            <img src="ARTE AGROFAF.png" alt="Faculdade do Futuro" class="logo-image">
+        </div>
+    </div>
+</div>
+    <!-- Capa com imagem -->
+    <section class="cover">
+        <div class="container">
+            <h1>Semana do Produtor Rural</h1>
+            <div class="date-badge">
+                <i class="fas fa-calendar-alt"></i> 06 a 10 de Outubro de 2025
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Introdução -->
+    <section class="intro">
+        <div class="container">
+            <h2>Bem-vindo à Semana do Produtor Rural</h2>
+            <p>Um evento dedicado à <span class="highlight">atualização técnica</span>, <span class="highlight">troca de experiências</span> e <span class="highlight">networking</span> para profissionais e estudantes de agronomia. Participe de palestras com especialistas renomados.</p>
+            <p> <span class="highlight"></span></p>
+        </div>
+    </section>
+
+    <!-- Grid de Eventos -->
+    <section class="events">
+        <div class="container">
+            <h2 class="section-title">Eventos e Inscrições</h2>
+            
+            <div class="events-grid">
+                <!-- Evento 1 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-seedling event-icon"></i>
+                        <h3 class="event-title">Mercado futuro de café/mulheres no café</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 06 de Outubro, 19h
+                        </div>
+                        <p class="event-description"> O encontro aborda o mercado futuro e o protagonismo feminino no café, finalizando com coffee break, sorteios e música ao vivo.</p>
+                        <a href="https://www.sympla.com.br/evento/7-agrofaf-e-1-semana-do-produtor-rural-da-faculdade-do-futuro-dia-06-10/3138631" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 2 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-leaf event-icon"></i>
+                        <h3 class="event-title">Palestra: Palestra: Mercado futuro de café (CDC)</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 07 de Outubro, 19h
+                        </div>
+                        <p class="event-description">Palestra sobre o mercado futuro de café e oficina prática com foco em pragas, nutrição, preparo de calda e poda do cafeeiro, conduzida por especialistas do setor.</p>
+                        <a href="https://www.sympla.com.br/evento/7-agrofaf-e-1-semana-do-produtor-rural-da-faculdade-do-futuro-dia-07-10/3138669" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 3 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-tint event-icon"></i>
+                        <h3 class="event-title">Oficina 1: Produção de flores</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i>  07 de Outubro, 20h
+                        </div>
+                        <p class="event-description">Oficina prática sobre Produção de Flores.</p>
+                        <a href="https://www.sympla.com.br/evento/oficina-1-producao-de-flores-rafael-07-10/3138845" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 4 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-laptop event-icon"></i>
+                        <h3 class="event-title">Oficina 2: Produção de conteúdo digital sobre o curso (vídeos,
+reels e memes agrícolas) </h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 07 de Outubro, 20h
+                        </div>
+                        <p class="event-description">Oficina prática sobre Produção de conteúdo digital sobre o curso.</p>
+                        <a href="https://www.sympla.com.br/evento/oficina-2-producao-de-conteudo-digital-sobre-o-curso-videos-reels-e-memesagricolas-brendow/3138856" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 5 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-recycle event-icon"></i>
+                        <h3 class="event-title">Oficina 3 - Qualidade do Café – da lavoura à xícara</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 07 de Outubro, 20h
+                        </div>
+                        <p class="event-description">Oficina prática sobre Qualidade do Café - da lavoura à xícara.</p>
+                        <a href="https://www.sympla.com.br/evento/oficina-3-qualidade-do-cafe-da-lavoura-a-xicara-joao-lanes-eden-07-10/3138870" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 6 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-chart-line event-icon"></i>
+                        <h3 class="event-title">Oficina 4 - Produção de café especial</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 07 de Outubro, 20h
+                        </div>
+                        <p class="event-description">Oficina prática sobre Produção de café especial.</p>
+                        <a href="https://www.sympla.com.br/evento/oficina-4-producao-de-cafe-especial-denise-perigolo-emater-07-10/3138881" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 7 -->
+             <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-leaf event-icon"></i>
+                        <h3 class="event-title">Palestra: Mercado futuro de café (CDC)</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 08 de Outubro, 19h
+                        </div>
+                        <p class="event-description">Palestra sobre o mercado futuro de café e oficina prática com foco em pragas, nutrição, preparo de calda e poda do cafeeiro, conduzida por especialistas do setor.</p>
+                        <a href="https://www.sympla.com.br/evento/7-agrofaf-e-1-semana-do-produtor-rural-da-faculdade-do-futuro-dia-08-10/3138691" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 8 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-apple-alt event-icon"></i>
+                        <h3 class="event-title">Oficina 1 - Prática: identificação de pragas e doenças nas
+culturas</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 08 de Outubro, 20h
+                        </div>
+                        <p class="event-description">Oficina Pratica sobre a identificação de pragase doenças nas culturas.</p>
+                        <a href="https://www.sympla.com.br/evento/oficina-1-pratica-identificacao-de-pragas-e-doencas-nas-culturas-gabriel-coxupe-08-10/3138888" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 9 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-vial event-icon"></i>
+                        <h3 class="event-title">Oficina 2 - Preparo de calda</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 08 de Outubro, 20h
+                        </div>
+                        <p class="event-description">Oficina Pratica sobre Preparo da Calda.</p>
+                        <a href="https://www.sympla.com.br/evento/oficina-2-preparo-de-calda-simone-syage-08-10/3138910" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 10 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-sun event-icon"></i>
+                        <h3 class="event-title">Oficina 3 - Nutrição do Cafeeiro</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 08 de Outubro, 20h
+                        </div>
+                        <p class="event-description">Oficina Pratica sobre Nutrição do cafeeiro.</p>
+                        <a href="https://www.sympla.com.br/evento/oficina-3-nutricao-do-cafeeiro-mauricio-ubyfol-08-10-2025/3139396" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 11 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-tractor event-icon"></i>
+                        <h3 class="event-title">Oficina 4 - Poda do cafeeiro</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 08 de Outubro, 20h
+                        </div>
+                        <p class="event-description">Oficina Pratica sobre Poda do cafeeiro.</p>
+                        <a href="https://www.sympla.com.br/evento/oficina-4-poda-do-cafeeiro-mateus-incaper-dia-08-10/3139406" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 12 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-hand-holding-water event-icon"></i>
+                        <h3 class="event-title">Mesa redonda: Segurança no campo (Policia Militar)</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 09 de Outubro, 19h
+                        </div>
+                        <p class="event-description">Mesa redonda sobre segurança no campo, oficina prática de irrigação do cafeeiro e a Feira FuturoAgro, um espaço onde conhecimento e oportunidades se encontram.</p>
+                        <a href="https://www.sympla.com.br/evento/7-agrofaf-e-1a-semana-do-produtor-rural-da-faculdade-do-futuro-dia-09-10/3138776" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <!-- Evento 13 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <i class="fas fa-graduation-cap event-icon"></i>
+                        <h3 class="event-title">Copa FAF / Gincana: Do campo para a mesa</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-date">
+                            <i class="fas fa-calendar"></i> 09 de Outubro, 19h
+                        </div>
+                        <p class="event-description">Copa FAF, gincana “Do campo para a mesa” e encerramento festivo com premiação, certificados e música ao vivo.</p>
+                        <a href="https://www.sympla.com.br/evento/7-agrofaf-e-1a-semana-do-produtor-rural-da-faculdade-do-futuro-dia-10-10/3138794" class="btn">Inscrever-se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Inscrição Geral -->
+    <section class="general-registration">
+        <div class="container">
+            <h2>Inscrição para Todos os Eventos</h2>
+            <p>Garanta sua participação em toda a programação da Semana do Produtor Rural.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Faculdade do Futuro</h3>
+                    <p>Formando profissionais para o agronegócio. Comprometida com a excelência acadêmica e a inovação no campo.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Rua Duarte Peixoto, 242 Coqueiro. Manhuaçu, MG</li>
+                        <li><i class="fas fa-phone"></i> (33) 3331-1214</li>
+                        <li><i class="fas fa-envelope"></i> contato@faculdadedofuturo.edu.br</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Faculdade do Futuro - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Adicionando interatividade
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adiciona efeito de clique nos botões
+            // Animação de entrada para os cards
+            const cards = document.querySelectorAll('.event-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
