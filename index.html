@@ -69,11 +69,10 @@
             font-weight: 600;
         }
 
-         .logo-image {
+        .logo-image {
             height: 50px;
-             width: auto;
-     
-         }        
+            width: auto;
+        }        
         /* Capa com imagem */
         .cover {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80');
@@ -266,6 +265,49 @@
             background: #e68900;
         }
         
+        /* Seção de Patrocinadores */
+        .sponsors {
+            padding: 60px 20px;
+            background-color: var(--white);
+            text-align: center;
+        }
+        
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .sponsor-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .sponsor-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .sponsor-image {
+            width: 100%;
+            height: 1100px; /* Proporção 4:5 para 300px de largura */
+            object-fit: inherit;
+            padding: 10px 10px;
+            background: #f9f9f9;
+        }
+        
+        .sponsor-name {
+            padding: 15px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            background: #f5f5f5;
+        }
+        
         /* Seção de inscrição geral */
         .general-registration {
             padding: 60px 20px;
@@ -342,6 +384,14 @@
                 grid-template-columns: 1fr;
             }
             
+            .sponsors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sponsor-image {
+                height: 450px; /* Maior altura em mobile */
+            }
+            
             .logo-text {
                 font-size: 1.2rem;
             }
@@ -350,14 +400,14 @@
 </head>
 <body>
     <!-- Header fino -->
-<!-- Header fino -->
-<div class="thin-header">
-    <div class="container header-content">
-        <div class="logo">
-            <img src="ARTE AGROFAF.png" alt="Faculdade do Futuro" class="logo-image">
+    <div class="thin-header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="ARTE AGROFAF.png" alt="Faculdade do Futuro" class="logo-image">
+            </div>
         </div>
     </div>
-</div>
+
     <!-- Capa com imagem -->
     <section class="cover">
         <div class="container">
@@ -373,7 +423,6 @@
         <div class="container">
             <h2>Bem-vindo ao 7º Simpósio de agronomia da Faculdade do Futuro</h2>
             <p>Um evento dedicado à <span class="highlight">atualização técnica</span>, <span class="highlight">troca de experiências</span> e <span class="highlight">networking</span> para profissionais e estudantes de agronomia. Participe de palestras com especialistas renomados.</p>
-            <p> <span class="highlight"></span></p>
         </div>
     </section>
 
@@ -432,8 +481,7 @@
                 <div class="event-card">
                     <div class="event-header">
                         <i class="fas fa-laptop event-icon"></i>
-                        <h3 class="event-title">Oficina 2: Produção de conteúdo digital sobre o curso (vídeos,
-reels e memes agrícolas) </h3>
+                        <h3 class="event-title">Oficina 2: Produção de conteúdo digital sobre o curso (vídeos, reels e memes agrícolas)</h3>
                     </div>
                     <div class="event-body">
                         <div class="event-date">
@@ -475,7 +523,7 @@ reels e memes agrícolas) </h3>
                 </div>
                 
                 <!-- Evento 7 -->
-             <div class="event-card">
+                <div class="event-card">
                     <div class="event-header">
                         <i class="fas fa-leaf event-icon"></i>
                         <h3 class="event-title">Palestra: Mercado futuro de café (CDC)</h3>
@@ -493,14 +541,13 @@ reels e memes agrícolas) </h3>
                 <div class="event-card">
                     <div class="event-header">
                         <i class="fas fa-apple-alt event-icon"></i>
-                        <h3 class="event-title">Oficina 1 - Prática: identificação de pragas e doenças nas
-culturas</h3>
+                        <h3 class="event-title">Oficina 1 - Prática: identificação de pragas e doenças nas culturas</h3>
                     </div>
                     <div class="event-body">
                         <div class="event-date">
                             <i class="fas fa-calendar"></i> 08 de Outubro, 20h
                         </div>
-                        <p class="event-description">Oficina Pratica sobre a identificação de pragase doenças nas culturas.</p>
+                        <p class="event-description">Oficina Pratica sobre a identificação de pragas e doenças nas culturas.</p>
                         <a href="https://www.sympla.com.br/evento/oficina-1-pratica-identificacao-de-pragas-e-doencas-nas-culturas-gabriel-coxupe-08-10/3138888" class="btn">Inscrever-se</a>
                     </div>
                 </div>
@@ -575,7 +622,7 @@ culturas</h3>
                         <div class="event-date">
                             <i class="fas fa-calendar"></i> 09 de Outubro, 19h
                         </div>
-                        <p class="event-description">Copa FAF, gincana “Do campo para a mesa” e encerramento festivo com premiação, certificados e música ao vivo.</p>
+                        <p class="event-description">Copa FAF, gincana "Do campo para a mesa" e encerramento festivo com premiação, certificados e música ao vivo.</p>
                         <a href="https://www.sympla.com.br/evento/7-agrofaf-e-1a-semana-do-produtor-rural-da-faculdade-do-futuro-dia-10-10/3138794" class="btn">Inscrever-se</a>
                     </div>
                 </div>
@@ -594,6 +641,23 @@ culturas</h3>
                         <a href="https://www.sympla.com.br/evento/oficina-09-10-irrigacao-do-cafeeiro-marlla-irrigare/3141061" class="btn">Inscrever-se</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Patrocinadores -->
+    <section class="sponsors">
+        <div class="container">
+            <h2 class="section-title">Nossos Patrocinadores</h2>
+            <div class="sponsors-grid">
+                <!-- Patrocinador 1 -->
+                <div class="sponsor-card">
+                    <img src="patrocinadoress.png" alt="Patrocinador 1" class="sponsor-image">
+                </div>
+                
+
+                
+                <!-- Adicione mais patrocinadores conforme necessário -->
             </div>
         </div>
     </section>
@@ -634,7 +698,6 @@ culturas</h3>
     <script>
         // Adicionando interatividade
         document.addEventListener('DOMContentLoaded', function() {
-            // Adiciona efeito de clique nos botões
             // Animação de entrada para os cards
             const cards = document.querySelectorAll('.event-card');
             cards.forEach((card, index) => {
@@ -650,5 +713,4 @@ culturas</h3>
         });
     </script>
 </body>
-
 </html>
